@@ -1,8 +1,14 @@
+<head>
+    <style>
+        body {
+            background: black;
+            color: skyblue;
+        }
+    </style>
+</head>
 <h1>Hi
     <%=name %>
 </h1>
 <form action="/logout?_method=DELETE" method="POST">
     <button type="submit">Log Out</button></form>
-<script>
-    window.location.replace("http://127.0.0.1:5501/frontend-team1-first-teamwork-project/blog/html/blogadmin.html");
-</script>
+<a href="http://127.0.0.1:5501/frontend-team1-first-teamwork-project/blog/html/blogadmin.html">Blog admin</a>

@@ -1,16 +1,30 @@
-<h1>Login</h1>
-<% if (messages.error) { %>
-    <%= messages.error %>
-        <% } %>
-            <form action="/login" method="POST">
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit">Login</button>
-            </form>
-            <!-- <a href="/register">Register</a> -->
+<head>
+    <style>
+        body {
+            background: black;
+            color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Login</h1>
+    <% if (messages.error) { %>
+        <%= messages.error %>
+            <% } %>
+                <form action="/login" method="POST">
+                    <div>
+                        <label for="email">Email</label><br>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="password">Password</label><br>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <!-- <a href="/register">Register</a> -->
+                <a href="http://127.0.0.1:5501/frontend-team1-first-teamwork-project/html/index.html">Back to Home Page</a>
+</body>
