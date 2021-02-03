@@ -17,7 +17,12 @@ initializePassport(
     id => users.find(user => user.id === id)
 )
 
-const users = [];
+const users = [{
+    id: '1612374420635',
+    name: 'admin',
+    email: 'admin@admin.hu',
+    password: '$2b$10$XPq5E/2n7Nblj0AoQTAK/eWZXfAdD85ek9CdnHxIoDRdb9CXxK3ZO'
+}];
 
 app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }))
@@ -45,25 +50,25 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     failureFlash: true
 }))
 
-app.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.ejs');
-})
+// app.get('/register', checkNotAuthenticated, (req, res) => {
+//     res.render('register.ejs');
+// })
 
-app.post('/register', checkNotAuthenticated, async(req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        users.push({
-            id: Date.now().toString(),
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword
-        })
-        res.redirect('/login')
-    } catch {
-        res.redirect('/register')
-    }
-    console.log(users);
-})
+// app.post('/register', checkNotAuthenticated, async(req, res) => {
+//     try {
+//         const hashedPassword = await bcrypt.hash(req.body.password, 10);
+//         users.push({
+//             id: Date.now().toString(),
+//             name: req.body.name,
+//             email: req.body.email,
+//             password: hashedPassword
+//         })
+//         res.redirect('/login')
+//     } catch {
+//         res.redirect('/register')
+//     }
+//     console.log(users);
+// })
 
 app.delete('/logout', (req, res) => {
     req.logOut();
@@ -84,4 +89,4 @@ function checkNotAuthenticated(req, res, next) {
     next();
 }
 
-app.listen(3000);
+app.listen(4000);
